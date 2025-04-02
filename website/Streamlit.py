@@ -55,7 +55,7 @@ st.markdown("""
     """, unsafe_allow_html=True)
 colu1, colu2, colu3 = st.columns([1, 2, 1])
 with colu1:
-    st.image("Drache.png", width=200)
+    st.image("website/Drache.png", width=200)
 def multiply_matrices(matrix1_str, matrix2_str):
     try:
         mat1 = np.array([[float(num) for num in row.split()]
