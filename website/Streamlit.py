@@ -113,6 +113,6 @@ with col2:
 
 prompt = st.chat_input("Experten kontaktieren")
 with st.chat_message("Graphenlord[EXPERTE]"):
-    st.write(Meddl)
+    st.write("Meddl")
 if prompt:
     st.write(f"User has sent the following prompt: {prompt}")
