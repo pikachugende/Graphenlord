@@ -110,6 +110,5 @@ with col2:
                 st.markdown(f"<div class='result-box'><pre>{result}</pre></div>",
                             unsafe_allow_html=True)
                 
-with st.chat_message("assistant"):
-    st.write("Hello human")
-    st.bar_chart(np.random.randn(30, 3))
+with st.chat_message("Graphenlord[EXPERTE]"):
+    st.write("Meddl")
