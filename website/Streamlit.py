@@ -112,3 +112,5 @@ with col2:
                 
 with st.chat_message("Graphenlord[EXPERTE]"):
     st.write("Meddl")
+    
+prompt = st.chat_input("Experten kontaktieren")
