@@ -1,7 +1,16 @@
 import streamlit as st
 import numpy as np
+import random
 
-
+def generate_response():
+    response = random.choice(
+        [
+            "Hello there! How can I assist you today?",
+            "Hi, human! Is there anything I can help you with?",
+            "Do you need help?",
+        ]
+    )
+    
 st.set_page_config(page_title="Graphenlord v1.0", layout="wide")
 
 
@@ -113,13 +122,6 @@ with col2:
 
 
 
-st.title("ChatGPT-like clone")
-
-
-
-
-
-
 # Initialize chat history
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -130,9 +132,13 @@ for message in st.session_state.messages:
         st.markdown(message["content"])
 
 # Accept user input
-if prompt := st.chat_input("What is up?"):
+if prompt := st.chat_input("Sprechen sie mit einen Experten"):
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
     # Display user message in chat message container
     with st.chat_message("user"):
         st.markdown(prompt)
+        with st.chat_message("Graphenlord[Experte]"):
+        stream = generate_response()
+        response = st.write_stream(stream)
+    st.session_state.messages.append({"role": "assistant", "content": response})
