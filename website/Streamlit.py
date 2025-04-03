@@ -139,6 +139,6 @@ if prompt := st.chat_input("Sprechen sie mit einen Experten"):
     with st.chat_message("user"):
         st.markdown(prompt)
         with st.chat_message("Graphenlord[Experte]"):
-        stream = generate_response()
-        response = st.write_stream(stream)
-    st.session_state.messages.append({"role": "assistant", "content": response})
+            stream = generate_response()
+            response = st.write_stream(stream)
+        st.session_state.messages.append({"role": "assistant", "content": response})
