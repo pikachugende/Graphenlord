@@ -110,7 +110,9 @@ with col2:
                 st.markdown(f"<div class='result-box'><pre>{result}</pre></div>",
                             unsafe_allow_html=True)
                 
-with st.chat_message("Graphenlord[EXPERTE]"):
-    st.write("Meddl")
-    
+
 prompt = st.chat_input("Experten kontaktieren")
+with st.chat_message("Graphenlord[EXPERTE]"):
+    st.write(Meddl)
+if prompt:
+    st.write(f"User has sent the following prompt: {prompt}")
