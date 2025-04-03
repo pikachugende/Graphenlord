@@ -109,3 +109,7 @@ with col2:
                 st.markdown("### Ergebnis")
                 st.markdown(f"<div class='result-box'><pre>{result}</pre></div>",
                             unsafe_allow_html=True)
+with col2:
+    prompt = st.chat_input("Say something")
+    if prompt:
+        st.write(f"User has sent the following prompt: {prompt}")
