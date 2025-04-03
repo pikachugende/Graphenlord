@@ -1,8 +1,7 @@
 import streamlit as st
 import numpy as np
-import base64
 
-# Page configuration
+
 st.set_page_config(page_title="Graphenlord v1.0", layout="wide")
 
 
@@ -64,7 +63,6 @@ def multiply_matrices(matrix1_str, matrix2_str):
                          for row in matrix2_str.strip().split("\n") if row.strip()])
 
         result = np.dot(mat1, mat2)
-        # Create properly formatted matrix string
         matrix_str = "Graphenlord sagt:\n"
         for row in result:
             matrix_str += ' '.join(f"{num:8.2f}" for num in row) + "\n"
@@ -76,7 +74,6 @@ def multiply_matrices(matrix1_str, matrix2_str):
 with colu2:
     st.markdown('<div class="title">Graphenlord v1.0</div>', unsafe_allow_html=True)
 
-# Input columns
 col1, col2 = st.columns(2)
 
 with col1:
@@ -99,15 +96,13 @@ with col2:
         label_visibility="collapsed"
     )
 
-# Calculate button centered
-st.write("")  # Spacer
+st.write("")  
 col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
     if st.button("Berechne Matrixprodukt", use_container_width=True):
         with st.spinner("Berechnung läuft..."):
             result = multiply_matrices(matrix1, matrix2)
 
-            # Display result
             if "❌" in result:
                 st.error(result)
             else:
