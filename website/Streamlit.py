@@ -10,6 +10,7 @@ def generate_response():
             "Do you need help?",
         ]
     )
+    return response
     
 st.set_page_config(page_title="Graphenlord v1.0", layout="wide")
 
