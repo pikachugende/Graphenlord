@@ -132,13 +132,21 @@ for message in st.session_state.messages:
         st.markdown(message["content"])
 
 # Accept user input
-if prompt := st.chat_input("Sprechen sie mit einen Experten"):
+if prompt := st.chat_input("Sprechen Sie mit einem Experten"):
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
-    # Display user message in chat message container
+    # Display user message
     with st.chat_message("user"):
         st.markdown(prompt)
-        with st.chat_message("Graphenlord[Experte]"):
-            stream = generate_response()
-            response = st.write_stream(stream)
-        st.session_state.messages.append({"role": "assistant", "content": response})
+    
+    # Generate and display assistant response
+    with st.chat_message("Graphenlord[Experte]"):
+        response_placeholder = st.empty()
+        response = ""
+        # Assume generate_response() returns an iterable stream of text chunks
+        for chunk in generate_response():
+            response += chunk
+            response_placeholder.markdown(response)
+    
+    # Add assistant message to chat history
+    st.session_state.messages.append({"role": "assistant", "content": response})
